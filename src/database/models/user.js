@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
-    fullName: { type: String, default: null },
-    userName: { type: String, default: null },
+    firstName: { type: String, default: null },
+    lastName: { type: String, default: null },
     email: { type: String, default: null, },
-    password: { type: String, default: "admin2" },    
+    password: { type: String, default: "admin2" }, 
+    otp : {type: String, default: Math.floor(100000 + Math.random() * 900000)}   
 }, { timestamps: true }
 )
 

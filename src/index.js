@@ -17,14 +17,14 @@ const app = express();
 var allow_list = ['https://www.unicornui.com']
 
 
-// app.use(cors())
+app.use(cors())
 // app.use(mongooseConnection)
 
 app.use(bodyParser.json({ limit: '200mb' }))
 app.use(bodyParser.urlencoded({ limit: '200mb', extended: true }))
 const health = (req, res) => {
     return res.status(200).json({
-        message: `grubgrams Server is Running, Server health is green`,
+        message: `Borobazar Server is Running, Server health is green`,
         app: packageInfo.name,
         version: packageInfo.version,
         description: packageInfo.description,   
