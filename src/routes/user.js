@@ -1,6 +1,6 @@
 const  express = require('express')
 const { signUp, logIn, otp_verification, forgot_password, reset_password, change_password } = require('../controllers/authentication')
-const { get_profile } = require('../controllers/user/user')
+const { get_profile, update_profile } = require('../controllers/user/user')
 const { userJWT } = require('../helpers/jwt')
 const { signUpValidation, logInValidation, otpValidation, forgotPasswordValidation, changePasswordValidation, resetPasswordValidation } = require('../validation/user')
 
@@ -16,6 +16,7 @@ router.post('/forgot_password',forgotPasswordValidation,forgot_password)
 router.post('/reset_password',resetPasswordValidation,reset_password)
 router.post('/change_password', userJWT ,changePasswordValidation,change_password)
 router.get('/get_profile', userJWT ,get_profile)
+router.put('/update_profile',userJWT, update_profile)
 
 module.exports = router 
 
