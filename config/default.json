@@ -4,6 +4,9 @@
     "refresh_jwt_token_secret": "demo-secreat-Key",
     "node_mailer_email" : "gaurang.bvminfotech@gmail.com",
     "node_mailer_password" : "tzbekgmqmbxypsts",
+    "cloud_name" : "du3hnjble",
+    "api_key" : "345977546474517",
+    "api_secret" : "8Yj3tPA5jn9YJ4KZDKa6gXm9cgI",
     "Winston": {
         "level": "debug"
     },

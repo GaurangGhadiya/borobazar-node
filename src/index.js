@@ -11,12 +11,15 @@ const cors = require('cors');
 const mongooseConnection = require('./database');
 const packageInfo = require('../package.json');
 const router = require('./Routes');
+const fileUpload = require('express-fileupload');
 
  
 const app = express();
 var allow_list = ['https://www.unicornui.com']
 
-
+app.use(fileUpload({
+    useTempFiles: true,
+}))
 app.use(cors())
 // app.use(mongooseConnection)
 
