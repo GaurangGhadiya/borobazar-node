@@ -79,6 +79,12 @@ const logIn = async (req, res) => {
       email: isFound.email,
       token,
     };
+    let locations = await userModel.findOneAndUpdate({ email: body?.email}, {latitude: body?.latitude, lognitude: body?.lognitude})
+    if(!locations){
+      return res
+        .status(400)
+        .json({ data: {}, message: "latitude and loginitude not stored in database" });
+    }
     if (!passwordMatch)
       return res
         .status(400)

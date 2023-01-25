@@ -33,4 +33,29 @@ const jwt_token_secret = config.get('jwt_token_secret')
     }
 }
 
-module.exports = { userJWT};
+const partial_userJWT = async (req, res, next) => {
+    let { authorization, userType } = req.headers,
+        result
+    if(!authorization){
+        next()
+    } else{
+        try {
+            let isVerifyToken = jwt.verify(authorization, jwt_token_secret)
+                result = await userModel.findOne({ _id: ObjectId(isVerifyToken?._id) })
+            if (result) {
+                req.headers.user = result
+                return next()
+            } else {
+                return res
+                .status(401)
+                .json({ data: error, message: "Invalid Token!" });            }
+        } catch (err) {
+            return res
+            .status(401)
+            .json({ data: err, message: "Invalid Token!" });
+        }
+    }
+   
+}
+
+module.exports = { userJWT, partial_userJWT};

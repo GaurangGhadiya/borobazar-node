@@ -19,6 +19,8 @@ const logInValidation = async (req, res, next) => {
     const schema = Joi.object({
         email: Joi.string().trim().lowercase().required().error(new Error('email is required!')),
         password: Joi.string().trim().required().trim().error(new Error('password is required!')),
+        latitude: Joi.string().trim().required().trim().error(new Error('latitude is required!')),
+        lognitude : Joi.string().trim().required().trim().error(new Error('lognitude is required!')),
     })
     schema.validateAsync(req.body).then(result => {
         req.body = result

@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
     email: { type: String, default: null, },
     password: { type: String, default: null }, 
     phoneNumber: { type: String, default: null }, 
+    latitude: { type: Number, default: null }, 
+    lognitude: { type: Number, default: null }, 
     otp : {type: String, default: Math.floor(100000 + Math.random() * 900000)}   
 }, { timestamps: true }
 )
